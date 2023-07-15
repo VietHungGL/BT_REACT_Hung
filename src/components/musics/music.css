@@ -1,0 +1,52 @@
+.container {
+    display        : flex;
+    justify-content: space-around;
+}
+
+.music-item {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    column-gap     : 40px;
+    border         : 2px solid #ccc;
+}
+
+.music-item img {
+    width: 8%;
+}
+
+.pause {
+    display: block;
+}
+
+.music {
+    display         : block;
+    text-align      : center;
+    max-width       : 500px;
+    margin          : 0 auto;
+    border-radius   : 12px;
+    background-color: #fff;
+    box-shadow      : rgba(100, 100, 111, .2)0px 7px 29px 0px;
+    padding         : 15px;
+}
+
+.music-img img {
+    border-radius: 50%;
+}
+
+.music-time {
+    display        : flex;
+    justify-content: space-around;
+}
+
+#song {
+    width: 400px;
+}
+
+.controls {
+    display        : flex;
+    justify-content: space-around;
+    align-items    : center;
+    font-size      : 30px;
+    margin-top     : 15px;
+}

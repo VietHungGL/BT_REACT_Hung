@@ -1,0 +1,181 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+span {
+    padding: 0;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+}
+
+:root{
+    --color-green: #3e9f4e;
+    --color-red: #F25753;
+    --color--darkred: #ef3636;
+    --color--aqua:#01f7f7ba;
+    --color--lightaqua:#01F7F7;
+    --color-yellow: #d6cb30;
+    --color--violet: #a0198ec8;
+    --color--pink: #df3da6;
+    --color--blue: #060680;
+    --color--greay: #ccc;
+}
+.block {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #df3da6;
+}
+* {
+    padding: 0;
+    margin:  0;
+    box-sizing: border-box;
+    outline: 0;
+}
+body {
+    width: 1200px;
+    height: auto;
+}
+.bg-green{
+    background-color: var(--color-green)
+}
+.bg-greay {
+    background-color: var(--color--greay);
+}
+.bg-lightgreen {
+    background-color: #4FD365;
+}
+.bg-yellow {
+    background-color: var(--color-yellow);
+}
+.bg-lightyellow {
+    background-color: yellow;
+}
+.bg-red{
+    background-color: var(--color-red)
+}
+.bg-darkred {
+    background-color: var(--color--darkred);
+}
+.bg-aqua {
+    background-color: var(--color--aqua);
+}
+.bg-lightaqua {
+    background-color: var(--color--lightaqua);
+}
+.bg-violet {
+    background-color: var(--color--violet);
+}
+.bg-lightviolet {
+    background-color: violet;
+}
+.bg-pink {
+    background-color: var(--color--pink);
+}
+.bg-lightpink {
+    background-color: pink;
+}
+.bg-blue {
+    background-color: var(--color--blue);
+}
+.bg-lightblue {
+    background-color: blue;
+}
+.profile-list {
+    display: flex;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.profile-item {
+    width: 205px;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px #ccc;
+    margin-right: 20px;
+}
+.image {
+    width: 200px;
+    height: auto;
+}
+.image a>img{
+    width: 200px;
+    height: 200px;
+}
+.image .image-title h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+}
+.image .image-title p {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #757373;
+    text-align: center;
+    line-height: 2;
+}
+.education {
+    width: 200px;
+    height: auto;
+    padding-bottom: 20px;
+}
+.edu-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px ;
+    line-height: 2;
+    color: #757373;
+    border-bottom: 1px dotted #757373;
+}
+.email {
+    width: 200px;
+    height: auto;
+    padding-bottom: 10px;
+}
+.emai-item {
+    width: 170px;
+    height: auto;
+    text-align: left;
+    margin: 10px auto;
+    padding: 10px 5px;
+}
+.emai-item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 200;
+    font-size: 14px;
+}
+.emai-item p {
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 2;
+}
