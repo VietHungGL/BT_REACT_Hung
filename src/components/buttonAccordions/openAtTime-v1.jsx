@@ -8,11 +8,16 @@ const contentDefault =
 function OpenAtTime(props) {
   const [activeTab, setActiveTab] = useState("COMPLETE");
 
-  // const onClickTab = () => (value) => {
-  //   setActiveTab(value);
-  // };
-  const onClickTab = (value) => {
-    return () => setActiveTab(value);
+  const onClickTab = () => {
+    setActiveTab("COMPLETE");
+  };
+
+  const onClickTab2 = () => {
+    setActiveTab("PENDING");
+  };
+
+  const onClickTab3 = () => {
+    setActiveTab("WAITING");
   };
   return (
     <>
@@ -21,21 +26,21 @@ function OpenAtTime(props) {
           title="Simple Panels"
           content={contentDefault}
           isActive={activeTab === "COMPLETE"}
-          onClick={onClickTab("COMPLETE")}
+          onClick={onClickTab}
         />
 
         <TabItem
           title="Simple Panels"
           content={contentDefault}
           isActive={activeTab === "PENDING"}
-          onClick={onClickTab("PENDING")}
+          onClick={onClickTab2}
         />
 
         <TabItem
           title="Simple Panels"
           content={contentDefault}
           isActive={activeTab === "WAITING"}
-          onClick={onClickTab("WAITING")}
+          onClick={onClickTab3}
         />
       </div>
     </>

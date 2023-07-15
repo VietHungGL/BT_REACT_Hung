@@ -1,7 +1,14 @@
 import React from "react";
 
-function buttonAccordions(props) {
-  return <></>;
-}
+import MullitipleOpen from "./mullitipleOpen";
+import OpenAtTime from "./openAtTime";
 
-export default buttonAccordions;
+export default function ButtonAccordions(props) {
+  return (
+    <div className="d-flex flex-row">
+      <OpenAtTime className="me-5" />
+
+      <MullitipleOpen />
+    </div>
+  );
+}
