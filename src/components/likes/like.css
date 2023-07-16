@@ -1,0 +1,71 @@
+.likes {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    margin-top      : 40px;
+    margin-bottom   : 40px;
+    width           : 500px;
+    height          : 500px;
+    background-color: black;
+}
+
+.btn__like {
+    width           : 120px;
+    padding         : 20px 5px;
+    font-size       : 20px;
+    font-weight     : 500;
+    border-radius   : 10px;
+    margin-left     : 0;
+    background-color: #fff;
+    color           : black;
+
+}
+
+.btn__like:hover {
+    color: #D721BA;
+}
+
+.btn__like i {
+    margin-right: 5px;
+    /* transform: translate(-50%, -50%); */
+    /* animation: heart 1s ease infinite */
+}
+
+.btn__like i:hover {
+    animation: zoom-in-zoom-out 2s ease-out infinite;
+    color    : #D721BA;
+}
+
+.active--like {
+    background-color: #D721BA;
+    color           : #fff;
+    animation       : zoom-in-zoom-out 2s ease-out infinite;
+}
+
+.active--like:hover {
+    color: #fff;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+/* @keyframes heart {
+    0% {
+        transform: translate(-50%, -50%) scale(.8, .8)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1, 1)
+    }
+} */

@@ -17,6 +17,7 @@ function OpenAtTime(props) {
   return (
     <>
       <div className="tab">
+        <h3>ONE AT A TIME</h3>
         <TabItem
           title="Simple Panels"
           content={contentDefault}

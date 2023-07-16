@@ -6,14 +6,10 @@ const contentDefault =
   " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat";
 
 function MullitipleOpen(props) {
-  const [activeTab, setActiveTab] = useState("COMPLETE");
-
-  const onClickTab = (value) => {
-    return () => setActiveTab(value);
-  };
   return (
     <>
       <div className="tab">
+        <h3>MULTIPLE OPEN</h3>
         <TabItem title="Simple Panels" content={contentDefault} />
 
         <TabItem title="Simple Panels" content={contentDefault} />
