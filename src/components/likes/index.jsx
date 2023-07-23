@@ -23,7 +23,7 @@ const BtnLike = ({ name }) => {
     <>
       <div onClick={onClickLike}>
         <button className={`btn__like ${activeLike ? "active--like" : ""}`}>
-          <i class="fa-solid fa-heart"></i>
+          <i className="fa-solid fa-heart"></i>
           {name}
         </button>
       </div>

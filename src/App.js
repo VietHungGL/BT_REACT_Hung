@@ -1,3 +1,4 @@
+import PlayMusic from "components/musics";
 import "./App.css";
 
 import ButtonAccordions from "./components/buttonAccordions";
@@ -22,6 +23,7 @@ function App() {
         <ButtonTabs />
         <SliderImage />
         <Likes />
+        <PlayMusic />
       </main>
     </div>
   );
