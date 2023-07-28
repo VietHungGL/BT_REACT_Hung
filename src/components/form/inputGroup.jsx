@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 
 function InputGroup({
   label,
@@ -6,32 +6,36 @@ function InputGroup({
   name,
   placeholder = "Please type in here",
   validation,
-  // classes
 }) {
-  const isValid = () => {
+  const isValid = useMemo(() => {
     if (validation.errors[name] && validation.touched[name]) {
       return false;
     }
 
     return true;
-  };
+  }, [name, validation.errors, validation.touched]);
 
   return (
-    <label>
-      {label}:
+    <div className="mb-5 text-left">
+      <label htmlFor="exampleFormControlInput1" className="form-label">
+        {label}:
+      </label>
       <input
+        id="exampleFormControlInput1"
         type={type}
         placeholder={placeholder}
         name={name}
         value={validation.values[name]} // validation.values.email
         onChange={validation.handleChange}
         onBlur={validation.handleBlur}
-        className={isValid() ? "valid" : "invalid"}
+        className={`form-control ${isValid ? "" : "is-invalid"}`}
         // validation={(e) => validation(e.target.value, name)}
       />
-      {!isValid() && <p className="text-danger">{validation.errors[name]}</p>}
-    </label>
+      {!isValid && (
+        <div className="invalid-feedback">{validation.errors[name]}</div>
+      )}
+    </div>
   );
 }
 
-export default InputGroup;
+export default memo(InputGroup);

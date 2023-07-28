@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 
 import InputGroup from "./inputGroup";
 
-import "./form.css";
+// import "./form.css";
 
 const Form = () => {
   const validation = useFormik({
@@ -29,33 +29,36 @@ const Form = () => {
         .required("Vui lòng điền email"),
 
       phoneNumber: Yup.string()
-        .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, "Số điện thoại sai rồi")
+        .matches(
+          /(84|0[3|5|7|8|9])+([0-9]{8})\b/g,
+          "Số điện thoại không hợp lệ"
+        )
         // .test("phoneErr", "Số điện thoại sai rồi", (value) => {
         //   const regex = new RegExp(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g);
         //   return regex.test(value);
         // })
-        .required("Required!"),
+        .required("Vui lòng nhập SDT!"),
 
       age: Yup.number().min(0).required("điền tuổi!"),
 
       firstName: Yup.string()
         .min(2, "Mininum 2 characters")
         .max(50, "Maximum 50 characters")
-        .required("Required tên!"),
+        .required("Vui lòng nhập tên!"),
 
       lastName: Yup.string()
         .min(2, "Mininum 2 characters")
         .max(50, "Maximum 50 characters")
-        .required("Required họ!"),
+        .required("Vui lòng nhập họ!"),
 
       password: Yup.string()
         .min(6, "Minimum 6 characters")
         .max(12, "Minimum 12 characters")
-        .required("Required!"),
+        .required("Vui lòng nhập PassWord!"),
 
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password")], "Password's not match")
-        .required("Required nhập lại MK"),
+        .oneOf([Yup.ref("password")], "Password's không khớp")
+        .required("Vui lòng nhập lại PassWord"),
     }),
 
     onSubmit: (values) => {
@@ -71,10 +74,17 @@ const Form = () => {
     validation.setFieldTouched("age", true);
   };
 
+  // const isValidEmail = () => {
+  //   if (validation.errors.email && validation.touched.email) {
+  //     return false;
+  //   }
+  //   return true;
+  // };
+
   return (
     <div>
       <h1>Form group</h1>
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column gap-2">
         <InputGroup
           label="Email"
           name="email"
@@ -122,7 +132,9 @@ const Form = () => {
           onChange={onChangeAge}
           onBlur={onBlurAge}
         />
-        <button onClick={validation.handleSubmit}>Click to submit</button>
+        <button className="btn btn-success" onClick={validation.handleSubmit}>
+          Click to submit
+        </button>
       </div>
     </div>
   );
