@@ -19,10 +19,10 @@ function App() {
       <main>
         {/* <CardList title="Nhân viên xuất sắc" />
         <CardList title="Nhân viên ưu tú" /> */}
-        <ButtonAccordions />
+        {/* <ButtonAccordions />
         <ButtonTabs />
         <SliderImage />
-        <Likes />
+        <Likes /> */}
         <PlayMusic />
       </main>
     </div>
