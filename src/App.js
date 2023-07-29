@@ -3,6 +3,8 @@ import "./App.css";
 import CardList from "./components/cardList";
 import Form from "./components/form/index";
 import Layout from "./components/layer";
+import LoginForm from "./components/login/login";
+import ProductList from "./components/product/product";
 
 function App() {
   return (
@@ -28,7 +30,9 @@ function App() {
         {/* <CardList title="Nhân viên xuất sắc" />
           <CardList title="Nhân viên ưu tú" /> */}
 
-        <Form />
+        {/* <Form /> */}
+        <LoginForm />
+        <ProductList />
       </main>
       {/* </Layout> */}
     </div>
