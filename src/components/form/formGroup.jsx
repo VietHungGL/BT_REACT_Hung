@@ -65,7 +65,9 @@ const FormGroup = () => {
           value={user.password}
           onChange={onChangeInput}
         />
-        <input type="submit" value="Submit" />
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Sign up
+        </button>
       </form>
     </div>
   );

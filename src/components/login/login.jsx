@@ -1,7 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
 
-export default function LoginForm(props) {
+import { axiosClient } from "../../helper/axiosClient";
+
+export default function Login(props) {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -24,7 +25,7 @@ export default function LoginForm(props) {
       password: "123456",
     };
 
-    const url = "https://batch-293-0-nodejs.onrender.com/admin/employees/login";
+    const url = "/admin/employees/login";
     // fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -56,7 +57,9 @@ export default function LoginForm(props) {
 
     try {
       // Promise là 1 lời hứa
-      const response = await axios.post(url, data);
+      const response = await axiosClient.post(url, data);
+      localStorage.setItem("TOKEN", response.data.token);
+      localStorage.setItem("REFRESH_TOKEN", response.data.refreshToken);
       console.log(response.data);
     } catch (err) {
       console.error(err);
