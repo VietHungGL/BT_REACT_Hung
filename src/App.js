@@ -3,6 +3,7 @@ import ButtonAccordions from "./components/buttonAccordions";
 
 import CardList from "./components/cardList";
 import Layout from "./components/layer";
+import ActionTodo from "./components/todoAction";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <main>
         {/* <CardList title="Nhân viên xuất sắc" />
         <CardList title="Nhân viên ưu tú" /> */}
-        <ButtonAccordions />
+        {/* <ButtonAccordions /> */}
+        <ActionTodo />
       </main>
     </div>
   );
