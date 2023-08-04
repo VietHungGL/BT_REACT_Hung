@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { axiosClient } from "../../helper/axiosClient";
 
+import "./login.css";
+import { useNavigate } from "react-router-dom";
+import { DEFAULT, LOCATION } from "constants/index";
+
 export default function Login(props) {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -15,7 +20,7 @@ export default function Login(props) {
     }));
   };
 
-  console.log(user);
+  // console.log(user);
 
   const onLogin = async (e) => {
     // riêng ở đây nếu sử dụng  async/await thì
@@ -57,47 +62,60 @@ export default function Login(props) {
 
     try {
       // Promise là 1 lời hứa
-      const response = await axiosClient.post(url, data);
-      localStorage.setItem("TOKEN", response.data.token);
-      localStorage.setItem("REFRESH_TOKEN", response.data.refreshToken);
+      const response = await axiosClient.post(url, user);
+      localStorage.setItem(DEFAULT.TOKEN, response.data.token);
+      localStorage.setItem(DEFAULT.REFRESH_TOKEN, response.data.refreshToken);
       console.log(response.data);
+      if (response && response.data.token) {
+        navigate(LOCATION.HOME);
+      }
     } catch (err) {
       console.error(err);
       console.log("Login thất bại");
     } //Hàm try catch cũng dùng sử lý dữ liệu
   };
 
+  const token = localStorage.getItem(DEFAULT.TOKEN);
+
+  useEffect(() => {
+    if (token) {
+      navigate(LOCATION.HOME);
+    }
+  }, [navigate, token]);
   return (
-    <form>
-      <div className="form-outline mb-2">
-        <input
-          type="email"
-          id="form2Example1"
-          className="form-control"
-          value={user.email}
-          onChange={onChangeUser("email")}
-        />
-        <label className="form-label my-3" htmlFor="form2Example1">
-          Email address
-        </label>
-      </div>
+    <>
+      <h1>Đăng Nhập</h1>
+      <form className="form-login">
+        <div className="form-outline mb-4">
+          <label className="form-label my-3" htmlFor="form2Example1">
+            Email address
+          </label>
+          <input
+            type="email"
+            id="form2Example1"
+            className="form-control"
+            value={user.email}
+            onChange={onChangeUser("email")}
+          />
+        </div>
 
-      <div className="form-outline mb-2">
-        <input
-          type="password"
-          id="form2Example2"
-          className="form-control"
-          value={user.password}
-          onChange={onChangeUser("password")}
-        />
-        <label className="form-label my-3" htmlFor="form2Example2">
-          Password
-        </label>
-      </div>
+        <div className="form-outline mb-2">
+          <label className="form-label my-3" htmlFor="form2Example2">
+            Password
+          </label>
+          <input
+            type="password"
+            id="form2Example2"
+            className="form-control"
+            value={user.password}
+            onChange={onChangeUser("password")}
+          />
+        </div>
 
-      <button onClick={onLogin} className="btn btn-primary btn-block mb-4">
-        Sign in
-      </button>
-    </form>
+        <button onClick={onLogin} className="btn btn-primary btn-block mb-4">
+          Sign in
+        </button>
+      </form>
+    </>
   );
 }

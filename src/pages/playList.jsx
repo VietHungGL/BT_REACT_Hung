@@ -1,7 +1,9 @@
 import React from "react";
 
+import PlayMusic from "../components/musics";
+
 function PlayListPage(props) {
-  return <></>;
+  return <PlayMusic />;
 }
 
 export default PlayListPage;

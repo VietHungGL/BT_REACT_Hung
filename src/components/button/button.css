@@ -33,6 +33,7 @@ button {
 }
 
 body {
+  width      : 100%;
   min-height : 100vh;
   font-weight: 400;
   font-size  : 16px;
@@ -50,7 +51,7 @@ body {
 }
 
 .btn:nth-child(2) {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .bg-black {

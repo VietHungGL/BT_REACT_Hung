@@ -6,7 +6,7 @@ import InputGroup from "./inputGroup";
 
 // import "./form.css";
 
-const Form = () => {
+const FormList = () => {
   const validation = useFormik({
     initialValues: {
       email: "",
@@ -140,4 +140,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormList;

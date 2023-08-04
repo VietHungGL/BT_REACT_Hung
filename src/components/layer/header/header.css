@@ -1,8 +1,7 @@
 .header-format {
-    width: 100%;
-    height: 50px;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width           : 100%;
+  background-color: #b3a4a4;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+}
