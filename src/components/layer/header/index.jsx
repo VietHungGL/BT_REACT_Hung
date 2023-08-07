@@ -1,11 +1,13 @@
+import { Link, useLocation } from "react-router-dom";
 import { AUTH, LOCATION } from "constants/index";
-import { Link } from "react-router-dom";
 
 import "./header.css";
 function Header(props) {
+  const location = useLocation();
+  console.log("««««« location »»»»»", location);
   return (
     <header className="App-header header-format">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand" to={LOCATION.HOME}>
             Trang Chủ
@@ -14,8 +16,8 @@ function Header(props) {
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
@@ -25,7 +27,12 @@ function Header(props) {
             <ul className="navbar-nav">
               {AUTH.map((item, index) => (
                 <li key={index} className="nav-item">
-                  <Link className="nav-link active" to={item.path}>
+                  <Link
+                    className={`nav-link ${
+                      location.pathname.includes(item.path) ? "disabled" : ""
+                    }`} // đoạn này sử lý khi bấm vào sẽ k được bấm được nữa bởi nó có disabled
+                    to={item.path}
+                  >
                     {item.title}
                   </Link>
                 </li>
@@ -34,40 +41,6 @@ function Header(props) {
           </div>
         </div>
       </nav>
-      {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-              <a class="nav-link" href="#">
-                Features
-              </a>
-              <a class="nav-link" href="#">
-                Pricing
-              </a>
-              <a class="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav> */}
     </header>
   );
 }

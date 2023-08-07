@@ -14,6 +14,7 @@ import HomePage from "pages/home";
 import ImagePage from "pages/image";
 import PlayListPage from "pages/playList";
 import ProductPage from "pages/product";
+import ProductDetailPage from "pages/productDetail";
 import { LoginPage } from "pages/login";
 import { RegisterPage } from "pages/register";
 
@@ -28,6 +29,7 @@ import { axiosClient } from "helper/axiosClient";
 import "./App.css";
 import Button from "components/button";
 import FormPage from "pages/form";
+import TodoPage from "pages/todo";
 
 function App() {
   const navigate = useNavigate();
@@ -56,6 +58,10 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path={LOCATION.IMAGE} element={<ImagePage />} />
             <Route path={LOCATION.PRODUCT} element={<ProductPage />} />
+            <Route
+              path={LOCATION.PRODUCT_DETAIL}
+              element={<ProductDetailPage />}
+            />
             <Route path={LOCATION.PLAY_LIST} element={<PlayListPage />} />
             <Route
               path={LOCATION.CART_EMPLOYEE}
@@ -64,6 +70,7 @@ function App() {
             <Route path={LOCATION.CART_MANAGER} element={<CartManagerPage />} />
             <Route path={LOCATION.BUTTON_ACCORDION} element={<Button />} />
             <Route path={LOCATION.FORM} element={<FormPage />} />
+            <Route path={LOCATION.TODO} element={<TodoPage />} />
           </Route>
 
           <Route index path={LOCATION.LOGIN} element={<LoginPage />} />

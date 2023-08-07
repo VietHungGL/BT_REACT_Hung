@@ -1,0 +1,18 @@
+.input-add {
+    display: flex;
+}
+
+.btn-add {
+    width          : 40px;
+    border-radius  : 20px;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-left    : 10px;
+    border         : 1px solid #4ee2e2;
+}
+
+.spinner-border {
+    width : 20px;
+    height: 20px;
+}

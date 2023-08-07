@@ -32,7 +32,7 @@ export default function Play({
       // Thân hàm
       setDuration(audioRef.current.duration);
     });
-  };
+  }; //đoạn này xử lý thanh input có thể tua bài hát
 
   useEffect(() => {
     getTrackLength();
