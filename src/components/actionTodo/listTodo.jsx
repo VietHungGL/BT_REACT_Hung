@@ -1,7 +1,8 @@
 import Loading from "components/loading";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  checkMissionAction,
   deleteMissionAction,
   deleteMissionSuccessAction,
   updateMissionAction,
@@ -13,10 +14,18 @@ import "./addTodo.css";
 function ListTodo(props) {
   const missions = useSelector((state) => state.todoReducer.missions);
 
+  const selected = useSelector((state) => state.todoReducer.selected);
   // console.log("««««« missions »»»»»", missions);
 
   return missions.length > 0 ? (
-    missions.map((m) => <ListItem key={m.id} content={m.name} id={m.id} />)
+    missions.map((m) => (
+      <ListItem
+        key={m.id}
+        content={m.name}
+        id={m.id}
+        isChecked={selected.includes(m.id)}
+      />
+    ))
   ) : (
     <ListItem
       classes="text-danger"
@@ -28,12 +37,12 @@ function ListTodo(props) {
 
 export default ListTodo;
 
-function ListItem({ id, content, classes, isHiddenButton = false }) {
-  const dispatch = useDispatch();
+//ListItem
+function ListItem({ id, content, isChecked, classes, isHiddenButton = false }) {
   const [mission, setMission] = useState("");
 
+  const dispatch = useDispatch();
   const loadingDelete = useSelector((state) => state.todoReducer.loadingDelete);
-
   const loadingUpdate = useSelector((state) => state.todoReducer.loadingUpdate);
 
   const onDeleteMission = () => {
@@ -41,10 +50,10 @@ function ListItem({ id, content, classes, isHiddenButton = false }) {
 
     setTimeout(() => {
       dispatch(deleteMissionSuccessAction(id));
-    }, 800);
+    }, 2000);
   };
 
-  const onUpdateChange = (e) => {
+  const onChangeMission = (e) => {
     setMission(e.target.value);
   };
 
@@ -52,13 +61,8 @@ function ListItem({ id, content, classes, isHiddenButton = false }) {
     dispatch(updateMissionAction(id));
 
     setTimeout(() => {
-      dispatch(
-        updateMissionSuccessAction({
-          id,
-          mission,
-        })
-      );
-    }, 500);
+      dispatch(updateMissionSuccessAction({ id, mission }));
+    }, 1000);
   };
 
   const onKeyDown = (e) => {
@@ -67,25 +71,36 @@ function ListItem({ id, content, classes, isHiddenButton = false }) {
     }
   };
 
+  const onSelectMission = useCallback(() => {
+    dispatch(checkMissionAction(id));
+  }, [dispatch, id]);
+
   useEffect(() => {
     setMission(content);
   }, [content]);
 
   return (
-    <div className="input-group mb-3">
+    <div className="input-group mb-3 d-flex align-items-center">
       <input
         type="text"
         className={`form-control ${classes}`}
         placeholder="Nhiệm vụ 1"
         value={mission}
-        onChange={onUpdateChange}
+        onChange={onChangeMission}
         onKeyDown={onKeyDown}
         // defaultValue={content}
         // disabled // k muốn cho người dùng sửa thì bật
       />
 
       {!isHiddenButton && (
-        <div className="input-group-append">
+        <div className="input-group-append d-flex">
+          <div className="input-check">
+            <input
+              type="checkbox"
+              onChange={onSelectMission}
+              checked={isChecked}
+            />
+          </div>
           <button
             className="btn btn-outline-danger"
             type="button"

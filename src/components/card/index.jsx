@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./card.css";
 import Button from "../button";
+import "./card.css";
 
 function Card({ info, onPlusAge, onMinusAge, onReset }) {
   const { image, name, role, birthday, mark, edu, address, email, phone, age } =
@@ -19,20 +19,20 @@ function Card({ info, onPlusAge, onMinusAge, onReset }) {
         <p className="image-title">Age: {age}</p>
         <Button
           name="TangTuoi"
-          classes="bg-white "
+          classes="bg-white"
           className="btn"
           onClick={onPlusAge}
         />
         <Button
           name="GiamTuoi"
           className="btn"
-          classes="bg-black "
+          classes="bg-black"
           onClick={onMinusAge}
         />
         <Button
           name="Reset"
           className="btn"
-          classes="bg-black "
+          classes="bg-black"
           onClick={onReset}
         />
         <div className="education">

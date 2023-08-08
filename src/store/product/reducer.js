@@ -6,7 +6,6 @@ const defaultState = {
   isLoadingAdd: false,
   loadingDelete: [],
   loadingUpdate: [],
-  selected: [],
 };
 
 const todoReducer = (state = defaultState, action) => {
@@ -47,61 +46,9 @@ const todoReducer = (state = defaultState, action) => {
 
       return { ...state, missions: newData, loadingDelete: newLoading };
     }
-    //Check
-    case ActionTypes.CHECKED_MISSION: {
-      console.log("««««« action »»»»»", action);
-      let newList = [];
 
-      if (state.selected.length > 0) {
-        const checkedMission = state.selected.find(
-          (item) => item === action.payload
-        );
-        if (checkedMission) {
-          newList = state.selected.filter((item) => item !== action.payload);
-        } else {
-          newList = [...state.selected, action.payload];
-        }
-      } else {
-        newList = [...state.selected, action.payload];
-      }
-
-      return {
-        ...state,
-        selected: newList,
-      };
-    }
-    // check All
-    case ActionTypes.CHECKED_ALL_MISSION: {
-      let checkList = [];
-
-      if (state.selected.length < state.missions.length) {
-        checkList = state.missions.map((item) => item.id);
-      }
-
-      return {
-        ...state,
-        selected: checkList,
-      };
-    }
-    // Delete ALL
-    case ActionTypes.DELETE_SELECTED_MISSION: {
-      return {
-        ...state,
-        loadingDelete: state.selected,
-      };
-    }
-
-    case ActionTypes.DELETE_SELECTED_MISSION_SUCCESS: {
-      const newList = state.missions.filter(
-        (item) => !state.selected.includes(item.id)
-      );
-
-      return {
-        ...state,
-        missions: newList,
-        loadingDelete: [],
-        selected: [],
-      };
+    case ActionTypes.DELETE_MISSION_FAILED: {
+      return { ...state, isLoadingAdd: false };
     }
     //Update
     case ActionTypes.UPDATE_MISSION: {

@@ -38,7 +38,7 @@ function Image(props) {
         </h4>
         <div className="d-flex ">
           <button
-            className="btn btn-primary"
+            className="btn btn-primary mx-3"
             // onClick={() => setIndex(index - 1)}
             onClick={onClickBlack}
           >

@@ -31,7 +31,7 @@ function AddTodo(props) {
     }
   };
 
-  console.log("««««« isLoadingAdd »»»»»", isLoadingAdd);
+  // console.log("««««« isLoadingAdd »»»»»", isLoadingAdd);
 
   return (
     <>

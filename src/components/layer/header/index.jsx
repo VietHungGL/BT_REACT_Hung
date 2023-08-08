@@ -4,7 +4,7 @@ import { AUTH, LOCATION } from "constants/index";
 import "./header.css";
 function Header(props) {
   const location = useLocation();
-  console.log("««««« location »»»»»", location);
+  // console.log("««««« location »»»»»", location);
   return (
     <header className="App-header header-format">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">

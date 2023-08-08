@@ -79,20 +79,6 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       )}
-
-      {/* <div className="App">
-      <AuthLayout headerTitle="Xin chào, đây là header!">
-        <main className="container d-flex justify-content-center my-4">
-          Đã Đăng nhập
-        </main>
-      </AuthLayout>
-
-      <NonAuthLayout footerTitle="Xin chào, đây là footer!">
-        <main className="container d-flex justify-content-center my-4">
-          Chưa Đăng Nhập
-        </main>
-      </NonAuthLayout>
-      </div> */}
     </>
   );
 }
