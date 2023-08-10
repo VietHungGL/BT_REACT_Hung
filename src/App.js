@@ -5,6 +5,8 @@ import Form from "./components/form/index";
 import Layout from "./components/layer";
 import LoginForm from "./components/login/login";
 import ProductList from "./components/product/product";
+import FormCreate from "./components/login/formCreate";
+import LoginFormBT from "./components/login/loginForm";
 
 function App() {
   return (
@@ -31,8 +33,10 @@ function App() {
           <CardList title="Nhân viên ưu tú" /> */}
 
         {/* <Form /> */}
-        <LoginForm />
-        <ProductList />
+        {/* <LoginForm /> */}
+        {/* <ProductList /> */}
+        <FormCreate />
+        <LoginFormBT />
       </main>
       {/* </Layout> */}
     </div>

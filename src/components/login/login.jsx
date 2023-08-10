@@ -66,6 +66,7 @@ export default function LoginForm(props) {
 
   return (
     <form>
+      <h2>Login</h2>
       <div className="form-outline mb-2">
         <input
           type="email"
